@@ -1,0 +1,28 @@
+{
+    // 清单文件的版本，这个必须写，而且必须是2
+    "manifest_version": 2,
+    // 插件的名称
+    "name": "injectcss_demo",
+    // 插件的版本
+    "version": "1.0",
+    // 插件描述
+    "description": "注入css,修改被注入页面的样式",
+    "icons": {
+        //48 chrome://extensions/ 显示的icon、也可用于浏览器右上角
+        "48": "img/icon.png"
+    },
+    // 浏览器右上角图标设置
+    "browser_action": {
+        //点击图标出现的页面
+        "default_popup": "popup.html"
+    },
+    // 需要直接注入页面的脚本
+    "content_scripts": [
+        {
+            //匹配的网址 只有百度页面注入该css
+            "matches": ["https://www.baidu.com/*"],
+            //注入的css
+            "css": ["custom.css"]
+        }
+    ]
+}
